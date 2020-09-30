@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>
+        {{titre}}
+    </title>
+</head>
+<body id={{id}}>
+    
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span>  <b>Accuil</b></a>
+          </div>
+      
+          
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/about"> <span class="glyphicon glyphicon-list-alt"></span>  <b>About US</b></a></li>
+              <li><a href="tel:+212-5282-48471"><span class="glyphicon glyphicon-earphone"></span>  <b>Call US </b></a></li>
+              <li><a href="https://www.google.com/maps/dir//Manar+Computer/@30.3446361,-9.5708966,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0xdb3c7cacc723a8d:0x46dc7e1b3cf81c53!2m2!1d-9.5008564!2d30.3446548" target="_blank"><span class="glyphicon glyphicon-map-marker"></span>  <b>Localisation</b></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-briefcase"></span>  <b>Services</b> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#"> <b>Achat</b></a></li>
+                  <li><a href="#"> <b>Installation</b></a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#myModal"> <b>Réparation & Maintenance</b></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-cog"></span>  <b>Réparation & Maintenance</b></h4>
+            </div>
+            <div class="modal-body">
+                <br><br>
+
+
+                <h4 style="font-family: 'Comic Sans MS', cursive, sans-serif;">
+                    <span class="glyphicon glyphicon-triangle-right"></span>  Vous pouvez nous rendre visite à l'adresse suivante : 
+                </h4> 
+                    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                    <a href="https://www.google.com/maps/dir//Manar+Computer/@30.3446361,-9.5708966,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0xdb3c7cacc723a8d:0x46dc7e1b3cf81c53!2m2!1d-9.5008564!2d30.3446548" target="_blank"><button type="button" class="btn btn-success">Voir localisation<span class="glyphicon glyphicon-map-marker"></span></button></a>
+                <br><br>
+                <h4 style="font-family: 'Comic Sans MS', cursive, sans-serif;">
+                    <span class="glyphicon glyphicon-triangle-right"></span>  Vous pouvez suivre le processus de réparation en nous applant : 
+                </h4> 
+                &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  
+                    <a href="tel:+212-5282-48471"><button type="button" class="btn btn-success">Appelez nous<span class="glyphicon glyphicon-earphone"></span></button></a>
+                
+                
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><b>Fermer</b></button>
+            
+            </div>
+        </div>
+        </div>
+    </div>
+
+    {% block content %}
+    
+    {% endblock content %}
+    <script src="static/js/jquery-3.5.1.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/script.js"></script>
+    <footer>
+        &copy;  Stage d'initiation | sté Manar computer | Abdellah ELAAROUB | IDSD Est Essaouira
+    </footer>
+</body>
+</html>

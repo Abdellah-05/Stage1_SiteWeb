@@ -1,0 +1,10 @@
+Screen Types
+
+
+Large   -->  lg  -->   >= 1200px
+
+Medium  -->  md  -->   >= 992px
+
+Small   -->  sm  -->   >= 768px
+
+X-Small -->  xs  -->   < 768px
