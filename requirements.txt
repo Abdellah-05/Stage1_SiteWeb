@@ -161,7 +161,6 @@ PyTweening==1.0.3
 pytz==2019.3
 PyWavelets==1.0.3
 pywhatkit==3.0
-pywin32==223
 pywinpty==0.5.5
 PyYAML==5.1.2
 pyzmq==18.1.0
