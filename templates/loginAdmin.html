@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>
+        Login | Admin
+    </title>
+    <script src="static/js/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#container").hide().show(1400);
+            $("#img-admin").hide().show(1000);
+        });
+    </script>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          
+          <div class="navbar-header" >
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/admin"><span class="glyphicon glyphicon-home"></span>  <b>Adminstration</b></a>
+          </div>
+      
+          
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+             
+              <li><a href="/"> <span class="glyphicon glyphicon-log-out"></span>  <b>Sing Out</b></a></li>
+              
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+
+    <div id="container" class="container" style=" height: 400px; margin-top: 40px; border-radius: 11px; box-shadow: 2px 12px 10px 10px rgb(134, 167, 236);" >
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " style=" height: 399px; ">
+                <div style="width: 70%; height: 90%;  margin-top: 1.5%; margin-left: 10%; background-color: white;">
+                    <img id="img-admin" src="/static/images/admin_img.jpg" alt="Administrateur" style="width: 100%; height: auto; position: relative;">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="  height: 399px; ">
+                <div >
+                    <form action='login' method='POST' enctype='multipart/form-data' id="form-admin" style="margin-top: 5%;" >
+
+                        <h2 style="text-align: center; color: blue; font-weight: bold; font-family: Segoe Print;">Welcom Admin </h2>
+                        <div class="form-group"><br>
+                            &nbsp;<label for="exampleInputEmail1"><b><span class="glyphicon glyphicon-user"></span>  Nom d'Utilisateur</b> </label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" placeholder="Entrer Nom d'Utilisateur..." required>
+                        
+                        </div>
+                        <div class="form-group">
+                            &nbsp;<label for="exampleInputEmail1"><b><span class="glyphicon glyphicon-envelope"></span>  addresse Email</b> </label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Entrer votre  addresse Email...">
+                        
+                        </div>
+                        <div class="form-group">
+                            &nbsp;<label for="exampleInputPassword1"><span class="glyphicon glyphicon-lock"></span>  Password :</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Mote de passe..." required>
+                        </div>
+        
+                        &nbsp; &nbsp; &nbsp; &nbsp; <a href="#"> <small id="emailHelp" class="form-text text-muted"> <b>Vous avez oublié le mot de passe ? </b> </small></a><br><br>
+                        <button type="submit" class="btn btn-large btn-block btn-primary" value="Send">  Submit <span class="glyphicon glyphicon-send"></span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <a href="/">
+        <span class="glyphicon glyphicon-home" style="font-size: 40px; position: fixed; right: 2%; top: 86%;"></span>
+    </a>
+    <br><br><br><br>
+    
+    <script src="static/js/bootstrap.min.js"></script>
+    <footer>
+        &copy;  Stage d'initiation | sté Manar computer | Abdellah ELAAROUB - admin | IDSD Est Essaouira
+    </footer>
+</body>
+</html>

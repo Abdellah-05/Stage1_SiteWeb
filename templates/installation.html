@@ -1,0 +1,156 @@
+{% extends "lyaout.html" %}
+{% block head %}
+<script src="static/js/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#installation-form").hide();
+        $("#affiche-form").click(function(){
+            $("#installation-form").show(3000);
+        });
+    });
+</script>
+{% endblock head %}
+
+{% block content %}
+
+
+<div class="alert alert-success">
+    <h4 style="text-align: center;"></p><span class="glyphicon glyphicon-ok"></span> <strong> Vous devez choisir le Modéle que vous voulez !</strong></h4> 
+   
+</div>
+
+<div class="container" id="installation">
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+            <div class="cam1">
+                
+                <button class="btn btn-large btn-block  btn-info" type="button" data-toggle="modal" data-target="#myModal1"> <strong>Modéle 1  <span class="glyphicon glyphicon-hand-down"></span> </strong> </button>
+                <img src="/static/images/alhua cam.png" alt="Alhua camera model" style="width: 100%;height: 80%; border-radius: 5px;">
+                <button class="btn btn-large btn-block btn-success" type="button" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-chevron-left"></span><span class="glyphicon glyphicon-chevron-left"></span>   Plus de détails</button>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+            <div class="cam2">
+                
+                <button class="btn btn-large btn-block  btn-info" type="button" data-toggle="modal" data-target="#myModal2"> <strong>Modéle 2  <span class="glyphicon glyphicon-hand-down"></span></strong></button>
+                <img src="/static/images/hikvision cam.jpg" alt="Hikvision camera model" style="width: 100%;height: 80%;">
+                <button class="btn btn-large btn-block btn-success" type="button" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-chevron-left"></span><span class="glyphicon glyphicon-chevron-left"></span>   Plus de détails</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal de modéle 1-->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel">Modéle 1</h3>
+        </div>
+        <div class="modal-body">
+          
+            <h4 style="text-align: center; font-family: 'Arial Black', Gadget, sans-serif;"><mark>Alhua Modéle </mark> </h4>
+            <ul style="color: rgb(46, 48, 46); font-size: 16px;">
+                <li>
+                    Capteur d'image haute défintion
+                </li>
+                <li>
+                    Etanche, fiabilité en hauteur
+                </li>
+                <li>
+                    Trois en un (vidéo / audio / controle tout en un seul signal composite)
+                </li>
+                <li>
+                    Affichage à l'écrante (OSD menu, Earsy configuration)
+                </li>
+                <li>
+                    Controler à distance
+                </li>
+                <li>
+                    Infrarouge (presents plus de déttailes à la nuit)
+                </li>
+            </ul>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><b>Fermer</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de modéle 2-->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel">Modéle 2</h3>
+        </div>
+        <div class="modal-body">
+          
+            <h4 style="text-align: center; font-family: 'Arial Black', Gadget, sans-serif;"><mark>HikVirsion Modéle </mark> </h4>
+            <ul style="color: rgb(46, 48, 46); font-size: 16px;">
+                <li>
+                    HD Sortie vidéos
+                </li>
+                <li>
+                    HD TVI technologie
+                </li>
+                <li>
+                    IP66 Résistant 
+                </li>
+                <li>
+                    3-Avis Adjust
+                </li>
+            </ul>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><b>Fermer</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+    <div class="container" id="installation-form">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+            <form class="form" action='services-installation' method='POST' enctype='multipart/form-data'>
+                <div class="form-group"><br>
+                    &nbsp;<label for="exampleInputEmail1"><b><span class="glyphicon glyphicon-home"></span>  Votre adresse de résidence</b> </label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="adresse" placeholder="Entrer votre  addresse de résidence..." required>
+                
+                </div>
+                <div class="form-group">
+                    &nbsp;<label for="exampleInputEmail1"><b><span class="glyphicon glyphicon-envelope"></span>  Votre addresse Email</b> </label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Entrer votre  addresse Email...">
+                
+                </div>
+                <div class="form-group">
+                    &nbsp;<label for="exampleInputPassword1"><span class="glyphicon glyphicon-earphone"></span>  N° de Télephone :</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" name="tel" placeholder="N° Tél..." required>
+                </div>
+
+                <div class="form-group">      
+                    &nbsp;<span class="glyphicon glyphicon-eye-open"></span> <strong> Tappez Votre choix   ( 1 - Alhua )    ( 2 - Hikvision ) : </strong>&nbsp;&nbsp; <input style="width: 42%; display: inline-block;" type="text" class="form-control" id="exampleInputPassword1" name="modele" placeholder="Votre modéle choisis ?" required>
+                
+                </div>
+
+                &nbsp; &nbsp; &nbsp; &nbsp;<small id="emailHelp" class="form-text text-muted"><span class="glyphicon glyphicon-lock"></span>  Aucune de vos informations ne sera publiée</small><br><br>
+                <button type="submit" class="btn btn-large btn-block btn-primary" value="Send">  Submit <span class="glyphicon glyphicon-send"></span></button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <button type="submit" class="btn btn-large btn-block btn-warning" id="affiche-form"><span class="glyphicon glyphicon-eye-close"></span>&nbsp;&nbsp;<b>Cliquez ici pour remplir le formulaire</b></button><br><br>
+    </div>
+
+
+    <br><br><br><br>
+{% endblock content %}

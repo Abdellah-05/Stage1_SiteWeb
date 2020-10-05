@@ -1,6 +1,75 @@
 {% extends "lyaout.html" %}
-{% block title %}{{titre}}{% endblock %}
-{% block content %}
- 
 
+{% block content %}
+<div class="alert alert-danger" style="font-size: 22px; font-family: 'Comic Sans MS', cursive, sans-serif;" >
+    <strong><marquee>Bienvenue chez Manar Computer la Sciété la plus connue dans le domaine de technologie</marquee></strong> 
+  </div>
+
+
+<div class="container" style="margin-top: 20px; position: relative; width: 65%; height: 30%;">
+    
+        <img id="slideImg"   class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+</div><br><br>
+
+<div class="container" >
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+
+            <!-- Single button -->
+            <div  >
+                <button type="button" class="btn btn-large btn-block btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Temps de travail <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                <li><a href="#">Lundi    : 08:00 - 19:00</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Mardi    : 08:00 - 19:00</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Mercredi : 08:00 - 19:00</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Jeudi    : 08:00 - 19:00</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Vendredi : 08:00 - 19:00</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Samedi   : 08:00 - 19:00</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Dimanche : Fémrmé</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+            <div >
+                <button type="button" class="btn btn-large btn-block btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Notre adresse <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                <li><a href="#">Rue de l'hopital Ait melloul 80150 Maroc</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+            <div  >
+                <button type="button" class="btn btn-large btn-block btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Nos numéros de Téléphone <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                <li><a href="#">05282-48471</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">05282-48471</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<div class="container" style="position: relative; height: 500px;" >
+    <h3 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; color: blue; font-weight: bold;">
+        Appuyez sur l'image pour obtenir des directions
+    </h3>
+    <a href="https://www.google.com/maps/dir//Manar+Computer/@30.3446361,-9.5708966,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0xdb3c7cacc723a8d:0x46dc7e1b3cf81c53!2m2!1d-9.5008564!2d30.3446548" target="_blank">
+        <img src="/static/images/derections.jpg" alt="derection" style="width: 100%;height: 100%; box-shadow: 2px 2px 2px 2px rgb(206, 206, 216); border-radius: 5px;">
+    </a>
+</div><br><br><br><br><br><br>
+<script src="/static/js/slides.js"></script>
 {% endblock content %}

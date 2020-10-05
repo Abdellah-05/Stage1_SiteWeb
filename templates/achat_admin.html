@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>
+        Administration | Achat
+    </title>
+    <script src="static/js/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#addNewProduct").hide();
+        $("#addProduct").click(function(){
+            $("#addNewProduct").show(1100);
+        });
+        $("#submitNewProduct").click(function(){
+            $("#addNewProduct").hide(1000);
+        });
+
+    });
+</script>
+    
+
+</head>
+<body style="background-color: white">
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          
+          <div class="navbar-header" >
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/admin"><span class="glyphicon glyphicon-home"></span>  <b>Adminstration</b></a>
+          </div>
+      
+          
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              
+              <li><a href="/singOut"> <span class="glyphicon glyphicon-log-out"></span>  <b>Sing Out</b></a></li>
+              
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+
+
+    <div id="addProduct" style=" border-radius: 4px; width: 110px; height: 95px; top: 78%; right: 20px; position: fixed;" >
+        
+        <p style="font-weight: bold; color: rgb(255, 0, 51);" >Ajouter produit</p>
+        <img src="/static/images/addProduct.png" alt="add new product" style="width: 98px; height: 60px;">
+    </div>
+
+    <div class="container" id="addNewProduct" style="margin-top: 40px; width: 60%;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+            <form class="form" action='/achat_admin' method='POST' enctype='multipart/form-data'>
+                <div class="form-group"><br>
+                    &nbsp;<label for="exampleInputEmail1"><b><span class="glyphicon glyphicon-shopping-cart"></span>  Nom de produit</b> </label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nomProduit" placeholder="Entrer le nom de Produit..." required>                
+                </div>
+
+                <div class="form-group">
+                    &nbsp;<label for="exampleInputEmail1"><b><span class="glyphicon glyphicon-usd"></span>  Prix de Produit DH</b> </label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="prixProduit" placeholder="Entrer le Prix de produit...">
+                </div>
+
+                <div class="form-group">
+                    &nbsp;<label for="exampleInputPassword1"><span class="glyphicon glyphicon-picture"></span>  Nom d'Image.ext :</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="imgProduit" placeholder="Entrer le Nom d'Image.Extention..." required>
+                </div>
+
+                <div class="form-group">
+                    &nbsp;<label for="exampleInputPassword1"><span class="glyphicon glyphicon-comment"></span>  Description de Produit :</label>
+                    <textarea style="resize: vertical;" class="form-control" rows="7" id="description"  name="descriptionProduit" placeholder="Description de ptoduit..." required></textarea>
+                  </div>
+               
+                <button id="submitNewProduct" type="submit" class="btn btn-large btn-block btn-primary" value="Send">  Submit <span class="glyphicon glyphicon-send"></span></button>
+            </form>
+        </div>
+    </div>
+    <br>
+    
+
+
+    
+
+    <div class="container">
+
+        {% for produit in produits %}
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="width: 90%; height: 50px; position: relative; border: 2px solid black; border-radius: 8px; margin-top: 15px;" >
+                <div class="produit">
+                    <p style="position: absolute; margin-left: 12px; margin-top: 5px; font-size: 20px; font-family: monospace;"  >
+                        <span class="glyphicon glyphicon-shopping-cart"></span> <b style="color: red;" >{{ produit.nomProduit }} </b>   Prix :<b style="color: red;" >{{ produit.prixProduit }} DH</b> 
+                    </p>
+                    
+                    <div style="position: absolute; right: 2%; margin-top: 5px;">
+                        <a href="#" data-toggle="modal" data-target="#{{produit.id}}" class="btn btn-success" style="right: 1px;" > <span class="glyphicon glyphicon-pencil"></span>
+                            modifier
+                        </a> 
+                        <a href="/supProduit/{{produit.id}}"  class="btn btn-danger" style="right: 1px;" > <span class="glyphicon glyphicon-trash"></span>
+                            Suprimér
+                        </a> 
+                    </div>
+                </div>
+            </div>  
+
+            <div class="modal fade" id="{{produit.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h3 class="modal-title" id="myModalLabel" style="font-weight: bold; text-align: center; color: red; text-shadow: 1px 1px 4px rgb(0, 0, 0);">{{produit.nomProduit}}</h3>
+                    </div>
+                    <div class="modal-body">                       
+                        <div class="container" id="modifProduitForm" style="margin-top: 20px; width: 100%;">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                <form class="formModif" action='/modifProduit/{{ produit.id }}' method='POST' enctype='multipart/form-data'>
+                                    <div class="form-group"><br>
+                                        &nbsp;<label for="exampleInputEmail1"><b><span class="glyphicon glyphicon-shopping-cart"></span> Nouveau Nom de produit</b> </label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="NVnomProduit" placeholder="Entrer le Nouveau nom de Produit..." required>                
+                                    </div>
+                    
+                                    <div class="form-group">
+                                        &nbsp;<label for="exampleInputEmail1"><b><span class="glyphicon glyphicon-usd"></span> Nouveau Prix de Produit DH</b> </label>
+                                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="NVprixProduit" placeholder="Entrer le Nouveau Prix de produit...">
+                                    </div>
+                    
+                                    <div class="form-group">
+                                        &nbsp;<label for="exampleInputPassword1"><span class="glyphicon glyphicon-picture"></span> Nouveau Nom d'Image.ext :</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" name="NVimgProduit" placeholder="Entrer le Nouveau Nom d'Image.Extention..." required>
+                                    </div>
+                    
+                                    <div class="form-group">
+                                        &nbsp;<label for="exampleInputPassword1"><span class="glyphicon glyphicon-comment"></span> Nouveau Description de Produit :</label>
+                                        <textarea style="resize: vertical;" class="form-control" rows="4" id="description"  name="NVdescriptionProduit" placeholder="Nouveau Description de ptoduit..." required></textarea>
+                                      </div>
+                                   
+                                    <button id="submit_New_Modification_Product" type="submit" class="btn btn-large btn-block btn-primary" value="Send">  Submit <span class="glyphicon glyphicon-send"></span></button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><b>Fermer</b></button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+        {% endfor %}    
+
+    </div>
+
+
+
+
+
+
+    
+    
+    
+    <br><br><br><br>
+    <script src="static/js/jquery-3.5.1.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="/static/js/installation_admin.js">
+
+    </script>
+    
+    <footer>
+        &copy;  Stage d'initiation | sté Manar computer | Abdellah ELAAROUB - admin | IDSD Est Essaouira
+    </footer>
+</body>
+</html>
