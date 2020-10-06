@@ -57,7 +57,6 @@ def email_isValid(mail):
     else:
         return False
 
-print("==========================>", email_isValid("ab--douelaaroub@gmail.com"))
 
 
 @app.route('/')
