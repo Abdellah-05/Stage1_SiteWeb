@@ -218,5 +218,3 @@ win-unicode-console==0.5
 wincertstore==0.2
 wrapt==1.11.2
 WTForms==2.3.3
-zict==1.0.0
-zipp==0.6.0
