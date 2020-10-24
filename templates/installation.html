@@ -14,6 +14,9 @@
 {% block content %}
 
 
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-e5c6cd63-fe77-4e71-99c5-c1b5938837ef" ></div>
+
 <div class="alert alert-success">
     <h4 style="text-align: center;"></p><span class="glyphicon glyphicon-ok"></span> <strong> Vous devez choisir le Modéle que vous voulez !</strong></h4> 
    
@@ -137,8 +140,11 @@
                 </div>
 
                 <div class="form-group">      
-                    &nbsp;<span class="glyphicon glyphicon-eye-open"></span> <strong> Tappez Votre choix   ( 1 - Alhua )    ( 2 - Hikvision ) : </strong>&nbsp;&nbsp; <input style="width: 42%; display: inline-block;" type="text" class="form-control" id="exampleInputPassword1" name="modele" placeholder="Votre modéle choisis ?" required>
-                
+                    &nbsp;<span class="glyphicon glyphicon-eye-open"></span> <strong> <label for='modele'></label> Tappez Votre choix   ( 1 - Alhua )    ( 2 - Hikvision ) : </strong>&nbsp;&nbsp; <!-- <input style="width: 42%; display: inline-block;" type="text" class="form-control" id="exampleInputPassword1" name="modele" placeholder="Votre modéle choisis ?" required>-->
+                    <select name="modele">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
                 </div>
 
                 &nbsp; &nbsp; &nbsp; &nbsp;<small id="emailHelp" class="form-text text-muted"><span class="glyphicon glyphicon-lock"></span>  Aucune de vos informations ne sera publiée</small><br><br>

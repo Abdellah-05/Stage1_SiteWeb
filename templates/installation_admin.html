@@ -11,7 +11,7 @@
         Administration | installation
     </title>
 </head>
-<body style="background-color: black;">
+<body style="background-color: rgb(2, 2, 2);">
     
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -23,7 +23,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/admin"><span class="glyphicon glyphicon-home"></span>  <b>Adminstration</b></a>
+            <a class="navbar-brand" href="/hello_admin"><span class="glyphicon glyphicon-home"></span>  <b>Adminstration</b></a>
           </div>
       
           
@@ -49,42 +49,46 @@
     </div>
 
     {% for client in installation_Clients %}
-        <div class="container" style="margin-top: 40px; width: 70%; background-color: rgb(185, 180, 173); position: relative; border-radius: 15px; box-shadow: 1px 2px 22px 4px rgb(133, 133, 133);">
+        <div class="container" style="margin-top: 40px; width: 70%;border-radius: 2px; box-shadow: 2px 2px 15px 2px rgb(51, 49, 49); background-color: rgb(0, 0, 0); position: relative; ">
             <div class="row" style="height: 40%; ">
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 ">
                     <div >
-                        <h3 style="text-align: center; font-family: 'Arial Black', Gadget, sans-serif;">
-                            Client {{ client.id}}
+                        <h3 style="text-align: center; font-family: Ink Free; color: cornsilk;">
+                            Client <b>{{ client.id}}</b>
                         </h3>
                     </div>
                 </div>
-            </div> <br>
-
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " >
-                    <a href="/estConfermer/{{client.id}}"><button id="confermer{{ client.id}}" type="button" class="btn btn-large btn-block btn-success"><span class="glyphicon glyphicon-ok"></span> <b>{{client.confirmation}}</b> </button></a> 
-                    <a href="/suprimerClient/{{ client.id }}">  <button  type="button" class="btn btn-large btn-block btn-danger"> <span class="glyphicon glyphicon-trash"></span> Suprémer</button> </a>
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 " style="margin-top: 15px;">
+                    {% if client.confirmation == "Client deja Conferme" %}
+                        <a href="/estConfermer/{{client.id}}"><button id="confermer{{ client.id}}" style="background-color: green;" type="button" class="btn btn-large btn-block btn-success"><span class="glyphicon glyphicon-ok"></span> <b>{{client.confirmation}}</b> </button></a> 
+                    {% else %}
+                        <a href="/estConfermer/{{client.id}}"><button id="confermer{{ client.id}}" style="background-color: red; border: red;" type="button" class="btn btn-large btn-block btn-success"> <b>{{client.confirmation}}</b> </button></a> 
+                    {% endif %}
+                </div>
+                <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 "  style="margin-top: 15px;">
+                    
+                    <a href="/suprimerClient/{{ client.id }}">  <button style="background-color: red;"  type="button" class="btn btn-large btn-block btn-danger"> <span class="glyphicon glyphicon-trash"></span> </button> </a>
             </div>
+            </div> 
+
+            
             
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " >
                 <div style="margin-top: 30px; font-size: 22px;">
-                    <ul style="font-size: 20px;">
-                        <li>
-                            <b style="color: rgb(11, 129, 0);"><span class="glyphicon glyphicon-triangle-right"></span> Modéle : </b> <b style="font-family: monospace;" >{{ client.modele }} </b> 
-                        </li>
-                        <li>
-                            <b style="color: rgb(240, 14, 14);"><span class="glyphicon glyphicon-earphone"></span> N° Téléphone : </b> <b style="font-family: monospace;" > +212-{{ client.tel }}</b>
-                        </li>
-                        <li>
-                            <b style="color: rgb(240, 14, 14);"><span class="glyphicon glyphicon-home"></span>  Adresse : </b> <b style="font-family: monospace;" > {{ client.adresse }}</b>
-                        </li>
-                        <li>
-                            <b style="color: rgb(240, 14, 14);"><span class="glyphicon glyphicon-envelope"></span> Email : </b> <b style="font-family: monospace;" >{{ client.email }}</b> 
-                        </li>
-                        <li>
-                            <b style="color: rgb(240, 14, 14);"> <span class="glyphicon glyphicon-calendar"></span> Date de registre : </b> <b style="font-family: monospace;" > {{ client.date_ }}</b>
-                        </li>
-                    </ul>
+                    
+                            <p style="color: rgb(161, 223, 156); font-size: 17px;"><span class="glyphicon glyphicon-triangle-right"></span> &nbsp; Modéle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp; <b style="color: rgb(134, 196, 99);">{{ client.modele }}</b> </p> 
+                        
+                            <p style="color: rgb(238, 243, 237); font-size: 17px;"><span class="glyphicon glyphicon-earphone"></span> &nbsp; N° Téléphone &nbsp; : &nbsp; +212 - {{ client.tel }}</p> 
+                        
+                            <p style="color: rgb(238, 243, 237); font-size: 17px;"><span class="glyphicon glyphicon-home"></span> &nbsp; Adresse &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp; {{ client.adresse }}</p> 
+                        
+                            <p style="color: rgb(238, 243, 237); font-size: 17px;"><span class="glyphicon glyphicon-envelope"></span> &nbsp; Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp; {{ client.email }}</p> 
+                        
+                           <p style="float: right; font-family: Century Gothic; font-size: 14px; color: rgb(255, 255, 255); text-shadow: 4px 4px 8px rgb(216, 74, 74);">
+                                <span class="glyphicon glyphicon-calendar"></span>  {{ client.date_.strftime('%d %B %Y à %H:%M:%S') }}
+                           </p>
+                       
                     <br>
                 </div>
             </div>

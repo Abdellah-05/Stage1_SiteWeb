@@ -1,0 +1,31 @@
+{% extends "lyaout.html" %}
+
+{% block content %}
+
+<a href="/achat">
+    <button class="btn btn-info"  style="margin-left: 7.1%;"> <span class="glyphicon glyphicon-arrow-left"></span> &nbsp; Return à la page d'achat</button>
+</a>
+
+<div class="container" style="position: relative; box-shadow: 3px 3px 8px 3px rgb(105, 102, 98); border-radius: 10px; margin-top: 10px;">
+
+    <img src="/static/images/{{ MYproduct.imgProduit }}" alt="{{ MYproduct.nomproduit }}" style="margin-right: 20px; width: 40%; height: 350px; border-radius: 15px; float: left;">
+    
+    <p style="position: absolute; margin-top: 15%; margin-left: 10%; text-align: center; font-size: 52px; font-weight: bold; text-shadow: 5px 5px 5px rgb(0, 0, 0); font-family: Comic Sans MS; color: green; transform: rotate(-30deg);">
+        {{MYproduct.prixProduit}} DH
+    </p>
+    
+    <h2 style="text-align: center; font-family: Rockwell; font-weight: bold;" >
+        {{ MYproduct.nomProduit }}        
+    </h2>
+    <a href="#" style="position: absolute; right: 14px; top: 19.5px;">
+        <button class="btn btn-success"><b>Add to cart</b>  <span class="glyphicon glyphicon-shopping-cart"></span></button>
+    </a>
+    <br>
+    <p style="font-size: 28px; font-family: Comic Sans MS; ">
+        <b style="color: brown;border-bottom: 2px solid rgb(207, 107, 107); font-family: Palatino Linotype; font-size: 32px;">Description Produit : </b> <br>
+        {{ MYproduct.descriptionProduit }}
+    </p><br>
+
+</div>
+<br><br><br><br>
+{% endblock content %}

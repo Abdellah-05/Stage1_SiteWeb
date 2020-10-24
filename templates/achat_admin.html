@@ -15,7 +15,7 @@
     $(document).ready(function(){
         $("#addNewProduct").hide();
         $("#addProduct").click(function(){
-            $("#addNewProduct").show(1100);
+            $("#addNewProduct").show(1000);
         });
         $("#submitNewProduct").click(function(){
             $("#addNewProduct").hide(1000);
@@ -38,7 +38,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/admin"><span class="glyphicon glyphicon-home"></span>  <b>Adminstration</b></a>
+            <a class="navbar-brand" href="/hello_admin"><span class="glyphicon glyphicon-home"></span>  <b>Adminstration</b></a>
           </div>
       
           
@@ -74,8 +74,8 @@
                 </div>
 
                 <div class="form-group">
-                    &nbsp;<label for="exampleInputPassword1"><span class="glyphicon glyphicon-picture"></span>  Nom d'Image.ext :</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="imgProduit" placeholder="Entrer le Nom d'Image.Extention..." required>
+                    &nbsp;<label for="imgProduit"><span class="glyphicon glyphicon-picture"></span>  Nom d'Image.ext :</label>
+                    <input type="text" class="form-control" id="imgProduit" name="imgProduit" placeholder="Entrer le Nom d'Image.Extention..." required>
                 </div>
 
                 <div class="form-group">
@@ -105,10 +105,10 @@
                     
                     <div style="position: absolute; right: 2%; margin-top: 5px;">
                         <a href="#" data-toggle="modal" data-target="#{{produit.id}}" class="btn btn-success" style="right: 1px;" > <span class="glyphicon glyphicon-pencil"></span>
-                            modifier
+                           
                         </a> 
                         <a href="/supProduit/{{produit.id}}"  class="btn btn-danger" style="right: 1px;" > <span class="glyphicon glyphicon-trash"></span>
-                            Suprimér
+                            
                         </a> 
                     </div>
                 </div>

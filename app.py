@@ -93,6 +93,30 @@ def changePWD_Admin() :
             return redirect('/erreur')
 
 
+
+################################### achat #############################################
+@app.route('/achat', methods = ['POST', 'GET'])
+def achat():
+    titre = "Achat"
+    produits = Produits.query.all()
+    if request.method == 'POST':
+        clientProduit = request.form.get('searching')
+        print("=============================>", clientProduit)
+        produitChrch = Produits.query.filter_by(nomProduit = clientProduit).first()
+        session['myProduct'] = produitChrch.id
+        return redirect('/monPrduct')
+    return render_template('achat.html',  titre = titre, produits = produits)
+
+@app.route('/monPrduct')
+def autoCompletSearch():
+    if 'myProduct' in session:
+        IdProduct = session['myProduct']
+        produitChrch = Produits.query.filter_by(id = IdProduct).first()
+        return render_template('produitCherche.html', MYproduct = produitChrch )
+
+
+
+
 #############################################-------------- Administration systéme---------------###################
 
 
@@ -127,40 +151,48 @@ def est_confermer(id):
     return redirect('/admin-installation_admin')
 
 @app.route('/admin-installation_admin')
+@login_required
 def installation_admin():
     Clients = Installation_Clients.query.all()
     installation_Clients = []
     for client in Clients:
         installation_Clients.insert(0,client)
+
+            
     return render_template('installation_admin.html', installation_Clients = installation_Clients)
 
-@app.route('/login', methods = ['GET'] )
+@app.route('/admin', methods = ['GET'] )
 def loginAdminGet():
     #logout_user()
     return render_template('loginAdmin.html')
 
-@app.route('/login', methods = ['POst'] )
+@app.route('/admin', methods = ['POst'] )
 def loginAdminPost():
     email = request.form['email']
     username = request.form['username']
     password = request.form['password']
+
     adminEmail = Admin.query.filter_by(email = email).first() # https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/
     adminUsername = Admin.query.filter_by(username = username).first()
     adminPassword = Admin.query.filter_by(password = password).first()
-    login_user(adminEmail)
-    if adminEmail is None or adminUsername is None or adminPassword is None : 
-        return redirect('/')
-    else :
-        return redirect('/admin')
 
-@app.route('/admin')#######################################
+    login_user(adminEmail)
+
+    if adminEmail is None or adminUsername is None or adminPassword is None : 
+        return redirect('/admin')
+    else :
+        return redirect('/hello_admin')
+
+
+
+@app.route('/hello_admin')#######################################
 @login_required
 def admin():
     return render_template('admin.html')############
 
 @app.route('/singOut', methods = ['GET'])
 def singOut() :
-    logout_user()# ------------------------->  khasni nrje3ha fash nsali !!!
+    logout_user()
     return redirect('/')
 ##########################################################################################
 
@@ -173,6 +205,7 @@ def installationPost() :
         tel=request.form.get("tel")
         date_=request.form.get("date_")
         modele=request.form.get("modele")
+        #modele = eval(modele)
         confirmation = "Confermer ?"
 
         TEST = email_isValid(email)
@@ -191,14 +224,6 @@ def installationgGet() :
         Clients = Installation_Clients.query.all()
         return render_template('installation.html', Clients = Clients)
 
-
-
-################################### achat ###########################
-@app.route('/achat')
-def achat():
-    titre = "Achat"
-    produits = Produits.query.all()
-    return render_template('achat.html',  titre = titre, produits = produits)
 
 
 
@@ -225,6 +250,7 @@ def modifProdForm(id) :
 
 
 @app.route('/achat_admin', methods = ['GET', 'POST'])
+@login_required
 def achat_admin() :
     if request.method =="POST":
         nomProduit = request.form.get("nomProduit")

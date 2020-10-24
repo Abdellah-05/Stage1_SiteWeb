@@ -2,13 +2,36 @@
 
 {% block content %}
 
-<div class="container" style="box-shadow: 3px 3px 8px 3px rgb(105, 102, 98); border-radius: 10px;">
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-e5c6cd63-fe77-4e71-99c5-c1b5938837ef" ></div>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width: 100%;  position: fixed; z-index: 20; top: 50px; height: 43px; background-color: rgb(37, 34, 34);" >
+    <form class="navbar-form navbar-left" role="search" method='POST' enctype='multipart/form-data'>
+        
+        <div class="form-group" style="position: absolute; margin-left: 12%;">
+        <input type="text" name="searching" list="myDataList" class="form-control" placeholder="Search for your product.." style=" width: 900px; ">
+        </div>
+        <a href="/produitCherche">
+            <button type="submit" class="btn btn-info" style="position: absolute; margin-left: 80%;"> <span class="glyphicon glyphicon-search"></span>&nbsp; <b>Search</b>  </button>
+        </a>
+        
+        <datalist id="myDataList">
+
+            {% for prod in produits %}                            
+                    <option> {{ prod.nomProduit }} </option>                            
+            {% endfor %}
+
+        </datalist>
+    </form>
+</div><br>
+
+<div class="container" style="margin-top: 50px; border-top: 2px double rgb(124, 117, 117); border-radius: 10px;">
     <div class="row">
         
             <p style=" height: 46px; font-size: 36px; text-shadow: 1px 1px 5px rgb(221, 56, 56); font-weight: bold; margin-top: 12px; border-radius: 5px; font-family: Gabriola;">
                 <marquee> Bienvenue sur notre boutique en ligne </marquee>
             </p>
-       
+            
         {% for produit in produits %}
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" style="background-color: rgb(124, 136, 124); border-radius: 8px; margin-top: 30px; width: 260px;margin-left: 2.2%;">
                 <div class="prod">

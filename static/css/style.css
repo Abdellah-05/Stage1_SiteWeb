@@ -87,8 +87,8 @@ footer{
     width: 100%;
     height: 400px;
     display: block;
-    border-radius: 8px;
-    box-shadow: 2px 2px 5px 5px rgb(177, 168, 168);
+
+    box-shadow: 2px 2px 2px 5px rgb(221, 210, 210);
 }
 #installatio-admin{
     margin-top: 80px;

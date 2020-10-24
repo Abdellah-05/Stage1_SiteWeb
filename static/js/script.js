@@ -51,3 +51,4 @@ function complete2(){
     clearInterval(compteur2);
     compteur2 = null;
 }
+
